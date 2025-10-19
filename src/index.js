@@ -1,3 +1,6 @@
+import './styles.css';
+
+
 class CreateTodo{
     constructor(id,title,description,dueDate,priority){
         this.id=id;
@@ -63,3 +66,4 @@ function setPriority(id){
 })
 return todoArray;
 }
+console.log("testing");
