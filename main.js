@@ -67,6 +67,7 @@ function setPriority(id){
 })
 return todoArray;
 }
+console.log("testing");
 /******/ })()
 ;
 //# sourceMappingURL=main.js.map
