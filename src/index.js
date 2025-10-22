@@ -1,6 +1,61 @@
+
 import './styles.css';
+// import dropDown from './assets/dropdown.svg';
 
 
+const addTask=document.querySelector('.newTask');
+const showProject=document.querySelector('.optionToShow');
+const projectHidden=document.querySelector('.project-hidden');
+const dialog=document.querySelector('#dialogBox');
+const dialogClose=document.querySelector('.dialogClose');
+const sideBar=document.querySelector('.sidebar-content');
+const slide=document.querySelector('.magic');
+const container=document.querySelector('.container');
+const projectAdd=document.querySelector('.projectAdd');
+const projectClose=document.querySelector('.projectClose');
+const projectDialog=document.querySelector('#projectDialog');
+const projectInput=document.querySelector('.projectInput');
+const title=document.querySelector('.dynamic-tittle');
+
+
+
+
+slide.addEventListener('click',()=>{
+    sideBar.classList.toggle('sidebar-content-active');
+   container.classList.toggle('sidebar-hidden');
+})
+
+dialogClose.addEventListener('click',()=>{
+    dialog.close();
+})
+
+projectClose.addEventListener('click',()=>{
+    projectDialog.close();
+})
+projectAdd.addEventListener('click',()=>{
+    if(projectInput.value==''){
+        alert("Enter some project");
+    }else{
+       const newDiv=document.createElement('div');
+       const title=document.createElement("h4");
+       title.textContent=projectInput.value;
+       newDiv.appendChild(title);
+       projectHidden.appendChild(newDiv);
+       projectDialog.close();
+       projectInput.value="";
+    }
+
+})
+
+addTask.addEventListener('click',()=>{
+   projectDialog.showModal();
+})
+
+function magic(){
+    projectHidden.classList.toggle("active");
+}
+
+showProject.addEventListener('click',magic);
 class CreateTodo{
     constructor(id,title,description,dueDate,priority){
         this.id=id;

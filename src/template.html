@@ -6,38 +6,75 @@
     <title>Todo app</title>
 </head>
 <body>
+<!-- this section is used for popup model  -->
+ <dialog id="dialogBox">
+    <button class="dialogClose">X</button>
+    <div class="dialog-content">
+        <input type="text" placeholder="title">
+        <input type="text" placeholder="description">
+        <input type="date">
+
+        <label for="priority">Set priority</label>
+        <select id="priority" name="priority">
+            <option value="High">High</option>
+            <option value="Medium" selected>Medium</option>
+            <option value="Low">Low</option>
+        </select>
+    </div>
+ </dialog>
+
+ <!-- this is used for project dialog -->
+ <dialog id="projectDialog">
+    <div class="project-dialog">
+        <input type="text" class="projectInput" placeholder="Enter the project">
+        <button class="projectAdd">Add</button>
+        <button class="projectClose">Close</button>
+    </div>
+ </dialog>
+
+
 <div class="container">
+
+    <!-- this is the side bar of the page.. -->
     <div class="sidebar-content">
 
 <div class="first-content">
-    <h2 class="newTask">Add Task +</h2>
+    <h2 class="newTask">Add Project +</h2>
     <p>Today Task</p>
     <p>Upcoming Task</p>
 </div>
 
 <div class="second-content">
+    <div class="project-heading">
     <h2>Project</h2>
+    <img class="optionToShow" src="./assets/dropdown.svg" alt="dropdown">
+    </div>
+
     <div class="project-hidden">
-        <div class="first">
-            <h4>first</h4>
-         
-        </div>
+      <!-- content will be added dynamically here  -->
     </div>
 </div>
     </div>
 
+    <!-- this is the main content like another side  -->
     <div class="main-content-bar">
+      <img src="./assets/hamburger.png" style="width: 30px; height: 30px; border-radius: 0.2rem;" class="magic" alt="">
 <div class="dynamic-tittle">
     <h2>This is dynamic tittle..</h2>
 </div>
 <div class="project-title-content">
-    <div>
+
+    <div class="project-main">
+  <div class="project-title-first">
  <h3>tittle of project</h3>
     <p>Due date</p>
     </div>
-   <div>
-    <p>content</p>
+   <div class="project-title-second">
+    <p>Content</p>
+    <p class="project-priority">Priority</p>
    </div>
+    </div>
+  
 
 </div>
     </div>
