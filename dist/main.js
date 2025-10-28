@@ -186,7 +186,47 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
 }
 .project-hidden div:active{
     scale: 1.1;
-}`, "",{"version":3,"sources":["webpack://./src/styles.css"],"names":[],"mappings":"AAAA;IACI,WAAW;IACX,YAAY;IACZ,sBAAsB;AAC1B;;AAEA;IACI,iBAAiB;IACjB,qBAAqB;IACrB,8BAA8B;IAC9B,iBAAiB;IACjB,mBAAmB;IACnB,8BAA8B;IAC9B,6BAA6B;AACjC;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,iBAAiB;IACjB,aAAa;IACb,0CAA0C;IAC1C,+CAA+C;AACnD;;AAEA;IACI,0CAA0C;IAC1C,kBAAkB;IAClB,uBAAuB;AAC3B;;AAEA;IACI,uBAAuB;IACvB,0CAA0C;IAC1C,sBAAsB;AAC1B;;AAEA;IACI,aAAa;IACb,WAAW;IACX,sBAAsB;AAC1B;;AAEA;IACI,eAAe;IACf,0CAA0C;IAC1C,qBAAqB;IACrB,iCAAiC;AACrC;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,YAAY;IACZ,WAAW;AACf;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,aAAa;IACb,eAAe;IACf,WAAW;IACX,mBAAmB;AACvB;;AAEA;IACI,mBAAmB;IACnB,aAAa;IACb,sBAAsB;IACtB,SAAS;AACb;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,aAAa;IACb,qBAAqB;IACrB,eAAe;IACf,+BAA+B;IAC/B,QAAQ;IACR,sBAAsB;IACtB,SAAS;IACT,uCAAuC;IACvC,gCAAgC;IAChC,wBAAwB;AAC5B;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,WAAW;AACf;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,mCAAmC;IACnC,aAAa;AACjB;;AAEA;IACI,kBAAkB;IAClB,UAAU;IACV,QAAQ;IACR,YAAY;IACZ,eAAe;IACf,kBAAkB;IAClB,wBAAwB;IACxB,UAAU;AACd;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,8CAA8C;AAClD;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,0CAA0C;IAC1C,qBAAqB;IACrB,iCAAiC;AACrC;;AAEA;IACI,eAAe;AACnB;AACA;IACI,UAAU;AACd","sourcesContent":["* {\r\n    margin: 0px;\r\n    padding: 0px;\r\n    box-sizing: border-box;\r\n}\r\n\r\n:root {\r\n    --high-color: red;\r\n    --medium-color: green;\r\n    --low-color: rgb(39, 123, 179);\r\n    --padding-x: 1rem;\r\n    --padding-y: 0.5rem;\r\n    --bg-color: rgb(226, 192, 128);\r\n    --font-color: rgb(15, 14, 14);\r\n}\r\n\r\n.newTask:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.newTask:active {\r\n    scale: 1.1;\r\n}\r\n\r\n.container {\r\n    min-height: 100vh;\r\n    display: grid;\r\n    grid-template-areas: 'sidebar mainContent';\r\n    grid-template-columns: minmax(180px, 250px) 3fr;\r\n}\r\n\r\n.sidebar-content {\r\n    padding: var(--padding-y) var(--padding-x);\r\n    grid-area: sidebar;\r\n    border: 1px solid black;\r\n}\r\n\r\n.main-content-bar {\r\n    border: 1px solid black;\r\n    padding: var(--padding-y) var(--padding-x);\r\n    grid-area: mainContent;\r\n}\r\n\r\n.first-content {\r\n    display: flex;\r\n    gap: 0.5rem;\r\n    flex-direction: column;\r\n}\r\n\r\n.first-content p {\r\n    cursor: pointer;\r\n    padding: var(--padding-y) var(--padding-x);\r\n    border-radius: 0.2rem;\r\n    background-color: var(--bg-color);\r\n}\r\n\r\n.first-content p:active {\r\n    scale: 1.1;\r\n}\r\n\r\n.second-content {\r\n    padding: 1rem;\r\n}\r\n\r\n.second-content img {\r\n    height: 30px;\r\n    width: 30px;\r\n}\r\n\r\n.second-content img:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.second-content img:active {\r\n    scale: 1.1;\r\n}\r\n\r\n.project-heading {\r\n    display: flex;\r\n    padding: 0.5rem;\r\n    gap: 0.5rem;\r\n    align-items: center;\r\n}\r\n\r\n.project-hidden {\r\n    padding-top: 0.5rem;\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 1rem;\r\n}\r\n\r\n.active {\r\n    display: none;\r\n}\r\n\r\n#dialogBox , #projectDialog {\r\n    padding: 1rem;\r\n    border-radius: 0.4rem;\r\n    position: fixed;\r\n    /* Fixes position to viewport */\r\n    top: 50%;\r\n    /* Push down halfway */\r\n    left: 50%;\r\n    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);\r\n    transform: translate(-50%, -50%);\r\n    /* Center it perfectly */\r\n}\r\n\r\n.dialog-content {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 0.5rem;\r\n}\r\n\r\n.dialog-content input, #projectDialog  input {\r\n    padding: 0.4rem;\r\n}\r\n\r\n.dialog-content input:focus ,#projectDialog input:focus {\r\n    border: 2px solid rgb(45, 128, 175);\r\n    outline: none;\r\n}\r\n\r\n.dialogClose {\r\n    position: absolute;\r\n    right: 2px;\r\n    top: 2px;\r\n    border: none;\r\n    padding: 0.2rem;\r\n    border-radius: 50%;\r\n    background-color: purple;\r\n    color: red;\r\n}\r\n\r\n.dialogClose:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.dialogClose:active {\r\n    scale: 1.1;\r\n}\r\n\r\n.sidebar-content-active {\r\n    display: none;\r\n}\r\n\r\n.container.sidebar-hidden {\r\n    grid-template-areas: 'mainContent mainContent';\r\n}\r\n\r\n.magic:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.project-hidden div {\r\n    padding: var(--padding-y) var(--padding-x);\r\n    border-radius: 0.2rem;\r\n    background-color: var(--bg-color);\r\n}\r\n\r\n.project-hidden:hover {\r\n    cursor: pointer;\r\n}\r\n.project-hidden div:active{\r\n    scale: 1.1;\r\n}"],"sourceRoot":""}]);
+}
+.project-main{
+    border: 1px solid gray;
+    border-radius: 0.2rem;
+    border-left:5px solid var(--bg-color);
+}
+.project-title-first{
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+}
+.project-title-first p{
+    margin-left: auto;
+}
+.project-title-second{
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+}
+.project-priority{
+    margin-left: auto;
+}
+.project-title-content{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.addNewTask{
+    position: fixed;
+    right: 1rem;
+    bottom: 2rem;
+    background-color:rgb(6, 78, 6);
+    color:white;
+    border-radius: 50%;
+    padding: 1rem;
+    opacity: 0.8;
+    cursor: pointer;
+}
+.addNewTask:active{
+    scale: 1.1;
+}`, "",{"version":3,"sources":["webpack://./src/styles.css"],"names":[],"mappings":"AAAA;IACI,WAAW;IACX,YAAY;IACZ,sBAAsB;AAC1B;;AAEA;IACI,iBAAiB;IACjB,qBAAqB;IACrB,8BAA8B;IAC9B,iBAAiB;IACjB,mBAAmB;IACnB,8BAA8B;IAC9B,6BAA6B;AACjC;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,iBAAiB;IACjB,aAAa;IACb,0CAA0C;IAC1C,+CAA+C;AACnD;;AAEA;IACI,0CAA0C;IAC1C,kBAAkB;IAClB,uBAAuB;AAC3B;;AAEA;IACI,uBAAuB;IACvB,0CAA0C;IAC1C,sBAAsB;AAC1B;;AAEA;IACI,aAAa;IACb,WAAW;IACX,sBAAsB;AAC1B;;AAEA;IACI,eAAe;IACf,0CAA0C;IAC1C,qBAAqB;IACrB,iCAAiC;AACrC;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,YAAY;IACZ,WAAW;AACf;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,aAAa;IACb,eAAe;IACf,WAAW;IACX,mBAAmB;AACvB;;AAEA;IACI,mBAAmB;IACnB,aAAa;IACb,sBAAsB;IACtB,SAAS;AACb;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,aAAa;IACb,qBAAqB;IACrB,eAAe;IACf,+BAA+B;IAC/B,QAAQ;IACR,sBAAsB;IACtB,SAAS;IACT,uCAAuC;IACvC,gCAAgC;IAChC,wBAAwB;AAC5B;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,WAAW;AACf;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,mCAAmC;IACnC,aAAa;AACjB;;AAEA;IACI,kBAAkB;IAClB,UAAU;IACV,QAAQ;IACR,YAAY;IACZ,eAAe;IACf,kBAAkB;IAClB,wBAAwB;IACxB,UAAU;AACd;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,8CAA8C;AAClD;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,0CAA0C;IAC1C,qBAAqB;IACrB,iCAAiC;AACrC;;AAEA;IACI,eAAe;AACnB;AACA;IACI,UAAU;AACd;AACA;IACI,sBAAsB;IACtB,qBAAqB;IACrB,qCAAqC;AACzC;AACA;IACI,aAAa;IACb,mBAAmB;IACnB,eAAe;AACnB;AACA;IACI,iBAAiB;AACrB;AACA;IACI,aAAa;IACb,mBAAmB;IACnB,eAAe;AACnB;AACA;IACI,iBAAiB;AACrB;AACA;IACI,aAAa;IACb,sBAAsB;IACtB,WAAW;AACf;AACA;IACI,eAAe;IACf,WAAW;IACX,YAAY;IACZ,8BAA8B;IAC9B,WAAW;IACX,kBAAkB;IAClB,aAAa;IACb,YAAY;IACZ,eAAe;AACnB;AACA;IACI,UAAU;AACd","sourcesContent":["* {\r\n    margin: 0px;\r\n    padding: 0px;\r\n    box-sizing: border-box;\r\n}\r\n\r\n:root {\r\n    --high-color: red;\r\n    --medium-color: green;\r\n    --low-color: rgb(39, 123, 179);\r\n    --padding-x: 1rem;\r\n    --padding-y: 0.5rem;\r\n    --bg-color: rgb(226, 192, 128);\r\n    --font-color: rgb(15, 14, 14);\r\n}\r\n\r\n.newTask:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.newTask:active {\r\n    scale: 1.1;\r\n}\r\n\r\n.container {\r\n    min-height: 100vh;\r\n    display: grid;\r\n    grid-template-areas: 'sidebar mainContent';\r\n    grid-template-columns: minmax(180px, 250px) 3fr;\r\n}\r\n\r\n.sidebar-content {\r\n    padding: var(--padding-y) var(--padding-x);\r\n    grid-area: sidebar;\r\n    border: 1px solid black;\r\n}\r\n\r\n.main-content-bar {\r\n    border: 1px solid black;\r\n    padding: var(--padding-y) var(--padding-x);\r\n    grid-area: mainContent;\r\n}\r\n\r\n.first-content {\r\n    display: flex;\r\n    gap: 0.5rem;\r\n    flex-direction: column;\r\n}\r\n\r\n.first-content p {\r\n    cursor: pointer;\r\n    padding: var(--padding-y) var(--padding-x);\r\n    border-radius: 0.2rem;\r\n    background-color: var(--bg-color);\r\n}\r\n\r\n.first-content p:active {\r\n    scale: 1.1;\r\n}\r\n\r\n.second-content {\r\n    padding: 1rem;\r\n}\r\n\r\n.second-content img {\r\n    height: 30px;\r\n    width: 30px;\r\n}\r\n\r\n.second-content img:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.second-content img:active {\r\n    scale: 1.1;\r\n}\r\n\r\n.project-heading {\r\n    display: flex;\r\n    padding: 0.5rem;\r\n    gap: 0.5rem;\r\n    align-items: center;\r\n}\r\n\r\n.project-hidden {\r\n    padding-top: 0.5rem;\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 1rem;\r\n}\r\n\r\n.active {\r\n    display: none;\r\n}\r\n\r\n#dialogBox , #projectDialog {\r\n    padding: 1rem;\r\n    border-radius: 0.4rem;\r\n    position: fixed;\r\n    /* Fixes position to viewport */\r\n    top: 50%;\r\n    /* Push down halfway */\r\n    left: 50%;\r\n    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);\r\n    transform: translate(-50%, -50%);\r\n    /* Center it perfectly */\r\n}\r\n\r\n.dialog-content {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 0.5rem;\r\n}\r\n\r\n.dialog-content input, #projectDialog  input {\r\n    padding: 0.4rem;\r\n}\r\n\r\n.dialog-content input:focus ,#projectDialog input:focus {\r\n    border: 2px solid rgb(45, 128, 175);\r\n    outline: none;\r\n}\r\n\r\n.dialogClose {\r\n    position: absolute;\r\n    right: 2px;\r\n    top: 2px;\r\n    border: none;\r\n    padding: 0.2rem;\r\n    border-radius: 50%;\r\n    background-color: purple;\r\n    color: red;\r\n}\r\n\r\n.dialogClose:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.dialogClose:active {\r\n    scale: 1.1;\r\n}\r\n\r\n.sidebar-content-active {\r\n    display: none;\r\n}\r\n\r\n.container.sidebar-hidden {\r\n    grid-template-areas: 'mainContent mainContent';\r\n}\r\n\r\n.magic:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.project-hidden div {\r\n    padding: var(--padding-y) var(--padding-x);\r\n    border-radius: 0.2rem;\r\n    background-color: var(--bg-color);\r\n}\r\n\r\n.project-hidden:hover {\r\n    cursor: pointer;\r\n}\r\n.project-hidden div:active{\r\n    scale: 1.1;\r\n}\r\n.project-main{\r\n    border: 1px solid gray;\r\n    border-radius: 0.2rem;\r\n    border-left:5px solid var(--bg-color);\r\n}\r\n.project-title-first{\r\n    display: flex;\r\n    align-items: center;\r\n    padding: 0.5rem;\r\n}\r\n.project-title-first p{\r\n    margin-left: auto;\r\n}\r\n.project-title-second{\r\n    display: flex;\r\n    align-items: center;\r\n    padding: 0.5rem;\r\n}\r\n.project-priority{\r\n    margin-left: auto;\r\n}\r\n.project-title-content{\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 0.5rem;\r\n}\r\n.addNewTask{\r\n    position: fixed;\r\n    right: 1rem;\r\n    bottom: 2rem;\r\n    background-color:rgb(6, 78, 6);\r\n    color:white;\r\n    border-radius: 50%;\r\n    padding: 1rem;\r\n    opacity: 0.8;\r\n    cursor: pointer;\r\n}\r\n.addNewTask:active{\r\n    scale: 1.1;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -729,9 +769,35 @@ const projectAdd=document.querySelector('.projectAdd');
 const projectClose=document.querySelector('.projectClose');
 const projectDialog=document.querySelector('#projectDialog');
 const projectInput=document.querySelector('.projectInput');
+const title=document.querySelector('.dynamic-tittle');
+const firstContent=document.querySelector('.first-content');
+const addTodoTask=document.querySelector('.addNewTask');
+// const secondContent=document.querySelector('.second-content');
 
+addTodoTask.addEventListener('click',()=>{
+    dialog.showModal();
+})
 
+// use of event delegant 
+firstContent.addEventListener('click',(event)=>{
+    if(event.target.tagName==='P'){
+        title.textContent="";
+        const newH2=document.createElement('H2');
+        newH2.textContent=event.target.textContent;
+        title.appendChild(newH2);
+        // console.log(event.target.textContent);
+    }
+})
 
+projectHidden.addEventListener('click',(event)=>{
+      if(event.target && event.target.tagName === 'H4'){
+         title.textContent="";
+        const newH2=document.createElement('H2');
+        newH2.textContent=event.target.textContent;
+        title.appendChild(newH2);
+        console.log(newH2);
+    }
+})
 
 slide.addEventListener('click',()=>{
     sideBar.classList.toggle('sidebar-content-active');
@@ -750,7 +816,7 @@ projectAdd.addEventListener('click',()=>{
         alert("Enter some project");
     }else{
        const newDiv=document.createElement('div');
-       const title=document.createElement("h2");
+       const title=document.createElement("H4");
        title.textContent=projectInput.value;
        newDiv.appendChild(title);
        projectHidden.appendChild(newDiv);
@@ -769,72 +835,13 @@ function magic(){
 }
 
 showProject.addEventListener('click',magic);
-class CreateTodo{
-    constructor(id,title,description,dueDate,priority){
-        this.id=id;
-        this.title=title;
-        this.description=description;
-        this.dueDate=dueDate;
-        this.priority=priority;
-    }
-}
 
-const todoArray=[];
-function newTodo(todoObj){
-    todoArray.push(todoObj);
-    console.log(todoArray);
-    return todoArray;
-} 
 
-let test1=new CreateTodo(1,'one','testing one data','sunday','high');
-let test2=new CreateTodo(2,'two','testing one data','sunday','high');
-let test3=new CreateTodo(3,'three','testing one data','sunday','high');
-let test4=new CreateTodo(4,'four','testing one data','sunday','high');
 
-todoArray.push(test1);
-todoArray.push(test2);
-todoArray.push(test3);
-todoArray.push(test4);
 
-window.todoArray=todoArray;
-window.newTodo=newTodo;
-window.deleteTodo=deleteTodo;
-window.editTodo=editTodo;
-window.showTodo=showTodo;
-window.setPriority=setPriority;
 
-function deleteTodo(id){
-   const updated = todoArray.filter(item => item.id !== id);
-  todoArray.splice(0, todoArray.length, ...updated); // 0 index bata length sama ko lai hataunxa ani update hunxa
-  return todoArray;
 
-}
-function editTodo(id){
-    const updated=todoArray.find(item=>{
-        if(item.id==id){
-            item.title='';
-            item.description='';
-            item.dueDate='';
-            item.priority='testing';
-            console.log(todoArray);
-        }
-    })
-}
 
-function showTodo(){
-    return todoArray;
-}
-
-function setPriority(id){
-    todoArray.find(item=>{
-        if(item.id==id){
-            item.priority='very very high';
-   console.log(todoArray);
-}
-})
-return todoArray;
-}
-console.log("testing");
 })();
 
 /******/ })()
