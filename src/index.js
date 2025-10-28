@@ -16,9 +16,34 @@ const projectClose=document.querySelector('.projectClose');
 const projectDialog=document.querySelector('#projectDialog');
 const projectInput=document.querySelector('.projectInput');
 const title=document.querySelector('.dynamic-tittle');
+const firstContent=document.querySelector('.first-content');
+const addTodoTask=document.querySelector('.addNewTask');
+// const secondContent=document.querySelector('.second-content');
 
+addTodoTask.addEventListener('click',()=>{
+    dialog.showModal();
+})
 
+// use of event delegant 
+firstContent.addEventListener('click',(event)=>{
+    if(event.target.tagName==='P'){
+        title.textContent="";
+        const newH2=document.createElement('H2');
+        newH2.textContent=event.target.textContent;
+        title.appendChild(newH2);
+        // console.log(event.target.textContent);
+    }
+})
 
+projectHidden.addEventListener('click',(event)=>{
+      if(event.target && event.target.tagName === 'H4'){
+         title.textContent="";
+        const newH2=document.createElement('H2');
+        newH2.textContent=event.target.textContent;
+        title.appendChild(newH2);
+        console.log(newH2);
+    }
+})
 
 slide.addEventListener('click',()=>{
     sideBar.classList.toggle('sidebar-content-active');
@@ -37,7 +62,7 @@ projectAdd.addEventListener('click',()=>{
         alert("Enter some project");
     }else{
        const newDiv=document.createElement('div');
-       const title=document.createElement("h4");
+       const title=document.createElement("H4");
        title.textContent=projectInput.value;
        newDiv.appendChild(title);
        projectHidden.appendChild(newDiv);
@@ -121,4 +146,3 @@ function setPriority(id){
 })
 return todoArray;
 }
-console.log("testing");
