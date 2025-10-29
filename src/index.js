@@ -19,6 +19,7 @@ const projectInput = document.querySelector('.projectInput');
 const title = document.querySelector('.dynamic-tittle');
 const firstContent = document.querySelector('.first-content');
 const addTodoTask = document.querySelector('.addNewTask');
+
 // const secondContent=document.querySelector('.second-content');
 
 let projectArray = [];
@@ -30,6 +31,7 @@ addTodoTask.addEventListener('click', () => {
 })
 
 // use of event delegant 
+//this section is used for today and upcoming section only...
 firstContent.addEventListener('click', (event) => {
     if (event.target.tagName === 'P') {
         title.textContent = "";
@@ -45,8 +47,16 @@ projectHidden.addEventListener('click', (event) => {
         title.textContent = "";
         const newH2 = document.createElement('H2');
         newH2.textContent = event.target.textContent;
+
         title.appendChild(newH2);
         console.log(newH2);
+    }
+
+
+    if (event.target && event.target.classList.contains('project-btn')) {
+       projectArray=projectArray.filter((p)=>p.id!==event.target.dataset.id);
+       event.target.closest('.project-section').remove();
+       
     }
 })
 
@@ -63,23 +73,37 @@ projectClose.addEventListener('click', () => {
     projectDialog.close();
 })
 
-projectAdd.addEventListener('click', () => {
+projectAdd.addEventListener('click', (e) => {
     if (projectInput.value == '') {
         alert("Enter some project");
     } else {
         const newDiv = document.createElement('div');
+        newDiv.classList.add('project-section');
         const title = document.createElement("H4");
         title.textContent = projectInput.value;
-        newDiv.appendChild(title);
-        projectHidden.appendChild(newDiv);
+        const btn = document.createElement('Button');
+        btn.classList.add('project-btn');
+        btn.textContent = "Delete";
+
+
 
         const project = projectList.addProject(projectInput.value);
+
+        btn.dataset.id = project.id;
+
+        newDiv.appendChild(title);
+        newDiv.appendChild(btn);
+        projectHidden.appendChild(newDiv);
+
+
+
         projectArray.push(project);
         console.log(projectArray);
 
         projectDialog.close();
         projectInput.value = "";
     }
+
 
 })
 
