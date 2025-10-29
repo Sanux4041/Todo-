@@ -204,3 +204,14 @@
 .addNewTask:active{
     scale: 1.1;
 }
+.btn-value{
+  background-color: rgb(32, 77, 145);
+  color: white;
+  padding: 0.2rem;
+    border: 2px solid rgb(45, 128, 175);
+    outline: none;
+    cursor: pointer;
+}
+.btn-value:active{
+    scale: 1.1;
+}
