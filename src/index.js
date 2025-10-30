@@ -20,9 +20,17 @@ const title = document.querySelector('.dynamic-tittle');
 const firstContent = document.querySelector('.first-content');
 const addTodoTask = document.querySelector('.addNewTask');
 
+//for add todo list variable
+const todoTitle=document.querySelector('#title');
+const todoDesc=document.querySelector('#description');
+const todoDate=document.querySelector('#date');
+const todoPriority=document.querySelector('#priority');
+const addTodoBtn=document.querySelector('.btn-value');
+
 // const secondContent=document.querySelector('.second-content');
 
-let projectArray = [];
+let projectArray =[];
+let currentId=null;
 let projectList = new ProjectList();
 let todoList = new TodoList(projectList);
 
@@ -43,37 +51,25 @@ firstContent.addEventListener('click', (event) => {
 })
 
 projectHidden.addEventListener('click', (event) => {
-    if (event.target && event.target.tagName === 'H4') {
-        title.textContent = "";
-        const newH2 = document.createElement('H2');
-        newH2.textContent = event.target.textContent;
+if(event.target.closest('.project-section' )){
+    // console.log(event.target.dataset.id);
+    currentId=event.target.dataset.id;
+}
 
-        title.appendChild(newH2);
-        console.log(newH2);
-    }
 
 
     if (event.target && event.target.classList.contains('project-btn')) {
-       projectArray=projectArray.filter((p)=>p.id!==event.target.dataset.id);
-       event.target.closest('.project-section').remove();
-       
+        const del = confirm("Are you sure you want to delete ?");
+        if (del) {
+            projectArray = projectArray.filter((p) => p.id !== event.target.dataset.id);
+            event.target.closest('.project-section').remove();
+        }
+
+
     }
 })
 
-slide.addEventListener('click', () => {
-    sideBar.classList.toggle('sidebar-content-active');
-    container.classList.toggle('sidebar-hidden');
-})
-
-dialogClose.addEventListener('click', () => {
-    dialog.close();
-})
-
-projectClose.addEventListener('click', () => {
-    projectDialog.close();
-})
-
-projectAdd.addEventListener('click', (e) => {
+function createNewProject() {
     if (projectInput.value == '') {
         alert("Enter some project");
     } else {
@@ -90,6 +86,8 @@ projectAdd.addEventListener('click', (e) => {
         const project = projectList.addProject(projectInput.value);
 
         btn.dataset.id = project.id;
+        newDiv.dataset.id=project.id;
+        title.dataset.id=project.id;
 
         newDiv.appendChild(title);
         newDiv.appendChild(btn);
@@ -98,12 +96,51 @@ projectAdd.addEventListener('click', (e) => {
 
 
         projectArray.push(project);
-        console.log(projectArray);
 
         projectDialog.close();
         projectInput.value = "";
     }
+}
 
+projectInput.addEventListener('keydown', (e) => {
+    if (e.key === "Enter") {
+        createNewProject();
+    }
+})
+
+//section for todoAdd button
+addTodoBtn.addEventListener('click',()=>{
+    const todoTitleValue=todoTitle.value.trim();
+    const todoDescValue=todoDesc.value.trim();
+    const todoDatevalue=todoDate.value;
+    const todoPriorityValue=todoPriority.value;
+
+    if(!todoTitleValue || !todoDescValue || !todoDatevalue || !todoPriorityValue){
+        alert("Enter all the field");
+        return;
+    }
+    todoList.addTodo(currentId,todoTitleValue,todoDescValue,todoDatevalue,todoPriorityValue);
+    console.log(projectArray);
+    dialog.close();
+})
+
+
+slide.addEventListener('click', () => {
+    sideBar.classList.toggle('sidebar-content-active');
+    container.classList.toggle('sidebar-hidden');
+})
+
+dialogClose.addEventListener('click', () => {
+    dialog.close();
+})
+
+projectClose.addEventListener('click', () => {
+    projectDialog.close();
+})
+
+projectAdd.addEventListener('click', (e) => {
+
+    createNewProject();
 
 })
 
@@ -131,3 +168,14 @@ showProject.addEventListener('click', magic);
 // todoList.addTodo(p2.id,"monday task","do exercise","sunday","high");
 
 // console.log(projectList);
+
+//   <div class="project-main">
+//   <div class="project-title-first">
+//  <h3>tittle of project</h3>
+//     <p>Due date</p>
+//     </div>
+//    <div class="project-title-second">
+//     <p>Content</p>
+//     <p class="project-priority">Priority</p>
+//    </div>
+//     </div>
