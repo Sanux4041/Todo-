@@ -227,3 +227,15 @@
     border: 1px solid red;
     cursor: pointer;
 }
+.high{
+    color: red;
+    font: bold;
+}
+.medium{
+    color: rgb(221, 164, 100);
+     font: bold;
+}
+.low{
+    color: green;
+     font: bold;
+}

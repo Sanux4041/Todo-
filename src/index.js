@@ -19,6 +19,7 @@ const projectInput = document.querySelector('.projectInput');
 const title = document.querySelector('.dynamic-tittle');
 const firstContent = document.querySelector('.first-content');
 const addTodoTask = document.querySelector('.addNewTask');
+const todoContent=document.querySelector('.project-title-content');
 
 //for add todo list variable
 const todoTitle=document.querySelector('#title');
@@ -38,6 +39,9 @@ addTodoTask.addEventListener('click', () => {
     dialog.showModal();
 })
 
+const today = new Date().toISOString().split('T')[0];
+todoDate.min=today;
+
 // use of event delegant 
 //this section is used for today and upcoming section only...
 firstContent.addEventListener('click', (event) => {
@@ -52,8 +56,17 @@ firstContent.addEventListener('click', (event) => {
 
 projectHidden.addEventListener('click', (event) => {
 if(event.target.closest('.project-section' )){
+    const projectSection=event.target.closest('.project-section');
+    const h4=projectSection.querySelector('h4');
+    const heading=document.createElement('h3');
+    title.textContent="";
+    heading.textContent=h4.textContent;
+    title.appendChild(heading);
+ 
     // console.log(event.target.dataset.id);
     currentId=event.target.dataset.id;
+
+    renderContain();
 }
 
 
@@ -68,6 +81,8 @@ if(event.target.closest('.project-section' )){
 
     }
 })
+
+
 
 function createNewProject() {
     if (projectInput.value == '') {
@@ -110,16 +125,29 @@ projectInput.addEventListener('keydown', (e) => {
 
 //section for todoAdd button
 addTodoBtn.addEventListener('click',()=>{
-    const todoTitleValue=todoTitle.value.trim();
-    const todoDescValue=todoDesc.value.trim();
-    const todoDatevalue=todoDate.value;
-    const todoPriorityValue=todoPriority.value;
+   
+    let todoTitleValue=todoTitle.value.trim();
+    let todoDescValue=todoDesc.value.trim();
+    let todoDatevalue=todoDate.value;
+    let todoPriorityValue=todoPriority.value;
+
+     if (currentId == null) {
+  dialog.close();
+  todoTitle.value = "";
+  todoDesc.value = "";
+  todoDate.value = "";
+  todoPriority.value = "";
+  return;
+}
+
 
     if(!todoTitleValue || !todoDescValue || !todoDatevalue || !todoPriorityValue){
         alert("Enter all the field");
         return;
     }
     todoList.addTodo(currentId,todoTitleValue,todoDescValue,todoDatevalue,todoPriorityValue);
+ 
+    renderContain();
     console.log(projectArray);
     dialog.close();
 })
@@ -155,6 +183,73 @@ function magic() {
 showProject.addEventListener('click', magic);
 
 
+function renderContain(){
+const project=projectList.showProject(currentId);
+
+todoContent.innerHTML="";
+project.todos.forEach((todo)=>{
+    const newDiv=document.createElement('div');
+    newDiv.classList.add('project-main');
+    const divFirst=document.createElement('div');
+    divFirst.classList.add('project-title-first');
+    const divSecond=document.createElement('div');
+    divSecond.classList.add('project-title-second');
+
+    const h3=document.createElement('H3');
+    h3.textContent=todo.title;
+    const p=document.createElement('P');
+    p.textContent=todo.dueDate;
+
+    divFirst.append(h3,p);
+
+    const p2=document.createElement('p');
+    p2.textContent=todo.description;
+    const p3=document.createElement('p');
+    p3.textContent=todo.priority;
+    if(todo.priority=="High"){
+        p3.classList.add('high');
+    }
+    else if(todo.priority=="Medium"){
+        p3.classList.add('medium');
+    }
+    else if(todo.priority=="Low"){
+        p3.classList.add('low');
+    }
+    p3.classList.add('project-priority');
+    const btn=document.createElement('button');
+    btn.dataset.id=todo.id;
+    btn.textContent="Delete";
+    btn.classList.add('todoBtn-delete');
+
+
+    divSecond.append(p2,p3,btn);
+
+    newDiv.append(divFirst,divSecond);
+    todoContent.appendChild(newDiv);
+
+})
+
+      todoTitle.value = "";
+  todoDesc.value = "";
+  todoDate.value = "";
+  todoPriority.value = "";
+
+
+}
+
+todoContent.addEventListener('click',(e)=>{
+    if(e.target.closest('.todoBtn-delete')){
+        const id=e.target.dataset.id;
+        const project=projectList.showProject(currentId);
+        const ask=confirm("Are you sure you want to delete this?");
+
+        if(ask){
+    project.todos=project.todos.filter((todo)=>todo.id!==id);
+        renderContain();
+        }
+
+    }
+})
 
 
 
