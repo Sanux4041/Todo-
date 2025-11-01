@@ -184,9 +184,9 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
 .project-hidden:hover {
     cursor: pointer;
 }
-.project-hidden div:active{
+/* .project-hidden div:active{
     scale: 1.1;
-}
+} */
 .project-main{
     border: 1px solid gray;
     border-radius: 0.2rem;
@@ -226,7 +226,42 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
 }
 .addNewTask:active{
     scale: 1.1;
-}`, "",{"version":3,"sources":["webpack://./src/styles.css"],"names":[],"mappings":"AAAA;IACI,WAAW;IACX,YAAY;IACZ,sBAAsB;AAC1B;;AAEA;IACI,iBAAiB;IACjB,qBAAqB;IACrB,8BAA8B;IAC9B,iBAAiB;IACjB,mBAAmB;IACnB,8BAA8B;IAC9B,6BAA6B;AACjC;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,iBAAiB;IACjB,aAAa;IACb,0CAA0C;IAC1C,+CAA+C;AACnD;;AAEA;IACI,0CAA0C;IAC1C,kBAAkB;IAClB,uBAAuB;AAC3B;;AAEA;IACI,uBAAuB;IACvB,0CAA0C;IAC1C,sBAAsB;AAC1B;;AAEA;IACI,aAAa;IACb,WAAW;IACX,sBAAsB;AAC1B;;AAEA;IACI,eAAe;IACf,0CAA0C;IAC1C,qBAAqB;IACrB,iCAAiC;AACrC;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,YAAY;IACZ,WAAW;AACf;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,aAAa;IACb,eAAe;IACf,WAAW;IACX,mBAAmB;AACvB;;AAEA;IACI,mBAAmB;IACnB,aAAa;IACb,sBAAsB;IACtB,SAAS;AACb;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,aAAa;IACb,qBAAqB;IACrB,eAAe;IACf,+BAA+B;IAC/B,QAAQ;IACR,sBAAsB;IACtB,SAAS;IACT,uCAAuC;IACvC,gCAAgC;IAChC,wBAAwB;AAC5B;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,WAAW;AACf;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,mCAAmC;IACnC,aAAa;AACjB;;AAEA;IACI,kBAAkB;IAClB,UAAU;IACV,QAAQ;IACR,YAAY;IACZ,eAAe;IACf,kBAAkB;IAClB,wBAAwB;IACxB,UAAU;AACd;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,8CAA8C;AAClD;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,0CAA0C;IAC1C,qBAAqB;IACrB,iCAAiC;AACrC;;AAEA;IACI,eAAe;AACnB;AACA;IACI,UAAU;AACd;AACA;IACI,sBAAsB;IACtB,qBAAqB;IACrB,qCAAqC;AACzC;AACA;IACI,aAAa;IACb,mBAAmB;IACnB,eAAe;AACnB;AACA;IACI,iBAAiB;AACrB;AACA;IACI,aAAa;IACb,mBAAmB;IACnB,eAAe;AACnB;AACA;IACI,iBAAiB;AACrB;AACA;IACI,aAAa;IACb,sBAAsB;IACtB,WAAW;AACf;AACA;IACI,eAAe;IACf,WAAW;IACX,YAAY;IACZ,8BAA8B;IAC9B,WAAW;IACX,kBAAkB;IAClB,aAAa;IACb,YAAY;IACZ,eAAe;AACnB;AACA;IACI,UAAU;AACd","sourcesContent":["* {\r\n    margin: 0px;\r\n    padding: 0px;\r\n    box-sizing: border-box;\r\n}\r\n\r\n:root {\r\n    --high-color: red;\r\n    --medium-color: green;\r\n    --low-color: rgb(39, 123, 179);\r\n    --padding-x: 1rem;\r\n    --padding-y: 0.5rem;\r\n    --bg-color: rgb(226, 192, 128);\r\n    --font-color: rgb(15, 14, 14);\r\n}\r\n\r\n.newTask:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.newTask:active {\r\n    scale: 1.1;\r\n}\r\n\r\n.container {\r\n    min-height: 100vh;\r\n    display: grid;\r\n    grid-template-areas: 'sidebar mainContent';\r\n    grid-template-columns: minmax(180px, 250px) 3fr;\r\n}\r\n\r\n.sidebar-content {\r\n    padding: var(--padding-y) var(--padding-x);\r\n    grid-area: sidebar;\r\n    border: 1px solid black;\r\n}\r\n\r\n.main-content-bar {\r\n    border: 1px solid black;\r\n    padding: var(--padding-y) var(--padding-x);\r\n    grid-area: mainContent;\r\n}\r\n\r\n.first-content {\r\n    display: flex;\r\n    gap: 0.5rem;\r\n    flex-direction: column;\r\n}\r\n\r\n.first-content p {\r\n    cursor: pointer;\r\n    padding: var(--padding-y) var(--padding-x);\r\n    border-radius: 0.2rem;\r\n    background-color: var(--bg-color);\r\n}\r\n\r\n.first-content p:active {\r\n    scale: 1.1;\r\n}\r\n\r\n.second-content {\r\n    padding: 1rem;\r\n}\r\n\r\n.second-content img {\r\n    height: 30px;\r\n    width: 30px;\r\n}\r\n\r\n.second-content img:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.second-content img:active {\r\n    scale: 1.1;\r\n}\r\n\r\n.project-heading {\r\n    display: flex;\r\n    padding: 0.5rem;\r\n    gap: 0.5rem;\r\n    align-items: center;\r\n}\r\n\r\n.project-hidden {\r\n    padding-top: 0.5rem;\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 1rem;\r\n}\r\n\r\n.active {\r\n    display: none;\r\n}\r\n\r\n#dialogBox , #projectDialog {\r\n    padding: 1rem;\r\n    border-radius: 0.4rem;\r\n    position: fixed;\r\n    /* Fixes position to viewport */\r\n    top: 50%;\r\n    /* Push down halfway */\r\n    left: 50%;\r\n    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);\r\n    transform: translate(-50%, -50%);\r\n    /* Center it perfectly */\r\n}\r\n\r\n.dialog-content {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 0.5rem;\r\n}\r\n\r\n.dialog-content input, #projectDialog  input {\r\n    padding: 0.4rem;\r\n}\r\n\r\n.dialog-content input:focus ,#projectDialog input:focus {\r\n    border: 2px solid rgb(45, 128, 175);\r\n    outline: none;\r\n}\r\n\r\n.dialogClose {\r\n    position: absolute;\r\n    right: 2px;\r\n    top: 2px;\r\n    border: none;\r\n    padding: 0.2rem;\r\n    border-radius: 50%;\r\n    background-color: purple;\r\n    color: red;\r\n}\r\n\r\n.dialogClose:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.dialogClose:active {\r\n    scale: 1.1;\r\n}\r\n\r\n.sidebar-content-active {\r\n    display: none;\r\n}\r\n\r\n.container.sidebar-hidden {\r\n    grid-template-areas: 'mainContent mainContent';\r\n}\r\n\r\n.magic:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.project-hidden div {\r\n    padding: var(--padding-y) var(--padding-x);\r\n    border-radius: 0.2rem;\r\n    background-color: var(--bg-color);\r\n}\r\n\r\n.project-hidden:hover {\r\n    cursor: pointer;\r\n}\r\n.project-hidden div:active{\r\n    scale: 1.1;\r\n}\r\n.project-main{\r\n    border: 1px solid gray;\r\n    border-radius: 0.2rem;\r\n    border-left:5px solid var(--bg-color);\r\n}\r\n.project-title-first{\r\n    display: flex;\r\n    align-items: center;\r\n    padding: 0.5rem;\r\n}\r\n.project-title-first p{\r\n    margin-left: auto;\r\n}\r\n.project-title-second{\r\n    display: flex;\r\n    align-items: center;\r\n    padding: 0.5rem;\r\n}\r\n.project-priority{\r\n    margin-left: auto;\r\n}\r\n.project-title-content{\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 0.5rem;\r\n}\r\n.addNewTask{\r\n    position: fixed;\r\n    right: 1rem;\r\n    bottom: 2rem;\r\n    background-color:rgb(6, 78, 6);\r\n    color:white;\r\n    border-radius: 50%;\r\n    padding: 1rem;\r\n    opacity: 0.8;\r\n    cursor: pointer;\r\n}\r\n.addNewTask:active{\r\n    scale: 1.1;\r\n}"],"sourceRoot":""}]);
+}
+.btn-value{
+  background-color: rgb(32, 77, 145);
+  color: white;
+  padding: 0.2rem;
+    border: 2px solid rgb(45, 128, 175);
+    outline: none;
+    cursor: pointer;
+}
+.btn-value:active{
+    scale: 1.1;
+}
+.project-section{
+    display: flex;
+    gap: 0.5rem;
+
+}
+.project-btn{
+    background-color: greenyellow;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border: 1px solid red;
+    cursor: pointer;
+}
+.high{
+    color: red;
+    font: bold;
+}
+.medium{
+    color: rgb(221, 164, 100);
+     font: bold;
+}
+.low{
+    color: green;
+     font: bold;
+}`, "",{"version":3,"sources":["webpack://./src/styles.css"],"names":[],"mappings":"AAAA;IACI,WAAW;IACX,YAAY;IACZ,sBAAsB;AAC1B;;AAEA;IACI,iBAAiB;IACjB,qBAAqB;IACrB,8BAA8B;IAC9B,iBAAiB;IACjB,mBAAmB;IACnB,8BAA8B;IAC9B,6BAA6B;AACjC;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,iBAAiB;IACjB,aAAa;IACb,0CAA0C;IAC1C,+CAA+C;AACnD;;AAEA;IACI,0CAA0C;IAC1C,kBAAkB;IAClB,uBAAuB;AAC3B;;AAEA;IACI,uBAAuB;IACvB,0CAA0C;IAC1C,sBAAsB;AAC1B;;AAEA;IACI,aAAa;IACb,WAAW;IACX,sBAAsB;AAC1B;;AAEA;IACI,eAAe;IACf,0CAA0C;IAC1C,qBAAqB;IACrB,iCAAiC;AACrC;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,YAAY;IACZ,WAAW;AACf;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,aAAa;IACb,eAAe;IACf,WAAW;IACX,mBAAmB;AACvB;;AAEA;IACI,mBAAmB;IACnB,aAAa;IACb,sBAAsB;IACtB,SAAS;AACb;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,aAAa;IACb,qBAAqB;IACrB,eAAe;IACf,+BAA+B;IAC/B,QAAQ;IACR,sBAAsB;IACtB,SAAS;IACT,uCAAuC;IACvC,gCAAgC;IAChC,wBAAwB;AAC5B;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,WAAW;AACf;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,mCAAmC;IACnC,aAAa;AACjB;;AAEA;IACI,kBAAkB;IAClB,UAAU;IACV,QAAQ;IACR,YAAY;IACZ,eAAe;IACf,kBAAkB;IAClB,wBAAwB;IACxB,UAAU;AACd;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,8CAA8C;AAClD;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,0CAA0C;IAC1C,qBAAqB;IACrB,iCAAiC;AACrC;;AAEA;IACI,eAAe;AACnB;AACA;;GAEG;AACH;IACI,sBAAsB;IACtB,qBAAqB;IACrB,qCAAqC;AACzC;AACA;IACI,aAAa;IACb,mBAAmB;IACnB,eAAe;AACnB;AACA;IACI,iBAAiB;AACrB;AACA;IACI,aAAa;IACb,mBAAmB;IACnB,eAAe;AACnB;AACA;IACI,iBAAiB;AACrB;AACA;IACI,aAAa;IACb,sBAAsB;IACtB,WAAW;AACf;AACA;IACI,eAAe;IACf,WAAW;IACX,YAAY;IACZ,8BAA8B;IAC9B,WAAW;IACX,kBAAkB;IAClB,aAAa;IACb,YAAY;IACZ,eAAe;AACnB;AACA;IACI,UAAU;AACd;AACA;EACE,kCAAkC;EAClC,YAAY;EACZ,eAAe;IACb,mCAAmC;IACnC,aAAa;IACb,eAAe;AACnB;AACA;IACI,UAAU;AACd;AACA;IACI,aAAa;IACb,WAAW;;AAEf;AACA;IACI,6BAA6B;IAC7B,oBAAoB;IACpB,qBAAqB;IACrB,qBAAqB;IACrB,eAAe;AACnB;AACA;IACI,UAAU;IACV,UAAU;AACd;AACA;IACI,yBAAyB;KACxB,UAAU;AACf;AACA;IACI,YAAY;KACX,UAAU;AACf","sourcesContent":["* {\r\n    margin: 0px;\r\n    padding: 0px;\r\n    box-sizing: border-box;\r\n}\r\n\r\n:root {\r\n    --high-color: red;\r\n    --medium-color: green;\r\n    --low-color: rgb(39, 123, 179);\r\n    --padding-x: 1rem;\r\n    --padding-y: 0.5rem;\r\n    --bg-color: rgb(226, 192, 128);\r\n    --font-color: rgb(15, 14, 14);\r\n}\r\n\r\n.newTask:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.newTask:active {\r\n    scale: 1.1;\r\n}\r\n\r\n.container {\r\n    min-height: 100vh;\r\n    display: grid;\r\n    grid-template-areas: 'sidebar mainContent';\r\n    grid-template-columns: minmax(180px, 250px) 3fr;\r\n}\r\n\r\n.sidebar-content {\r\n    padding: var(--padding-y) var(--padding-x);\r\n    grid-area: sidebar;\r\n    border: 1px solid black;\r\n}\r\n\r\n.main-content-bar {\r\n    border: 1px solid black;\r\n    padding: var(--padding-y) var(--padding-x);\r\n    grid-area: mainContent;\r\n}\r\n\r\n.first-content {\r\n    display: flex;\r\n    gap: 0.5rem;\r\n    flex-direction: column;\r\n}\r\n\r\n.first-content p {\r\n    cursor: pointer;\r\n    padding: var(--padding-y) var(--padding-x);\r\n    border-radius: 0.2rem;\r\n    background-color: var(--bg-color);\r\n}\r\n\r\n.first-content p:active {\r\n    scale: 1.1;\r\n}\r\n\r\n.second-content {\r\n    padding: 1rem;\r\n}\r\n\r\n.second-content img {\r\n    height: 30px;\r\n    width: 30px;\r\n}\r\n\r\n.second-content img:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.second-content img:active {\r\n    scale: 1.1;\r\n}\r\n\r\n.project-heading {\r\n    display: flex;\r\n    padding: 0.5rem;\r\n    gap: 0.5rem;\r\n    align-items: center;\r\n}\r\n\r\n.project-hidden {\r\n    padding-top: 0.5rem;\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 1rem;\r\n}\r\n\r\n.active {\r\n    display: none;\r\n}\r\n\r\n#dialogBox , #projectDialog {\r\n    padding: 1rem;\r\n    border-radius: 0.4rem;\r\n    position: fixed;\r\n    /* Fixes position to viewport */\r\n    top: 50%;\r\n    /* Push down halfway */\r\n    left: 50%;\r\n    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);\r\n    transform: translate(-50%, -50%);\r\n    /* Center it perfectly */\r\n}\r\n\r\n.dialog-content {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 0.5rem;\r\n}\r\n\r\n.dialog-content input, #projectDialog  input {\r\n    padding: 0.4rem;\r\n}\r\n\r\n.dialog-content input:focus ,#projectDialog input:focus {\r\n    border: 2px solid rgb(45, 128, 175);\r\n    outline: none;\r\n}\r\n\r\n.dialogClose {\r\n    position: absolute;\r\n    right: 2px;\r\n    top: 2px;\r\n    border: none;\r\n    padding: 0.2rem;\r\n    border-radius: 50%;\r\n    background-color: purple;\r\n    color: red;\r\n}\r\n\r\n.dialogClose:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.dialogClose:active {\r\n    scale: 1.1;\r\n}\r\n\r\n.sidebar-content-active {\r\n    display: none;\r\n}\r\n\r\n.container.sidebar-hidden {\r\n    grid-template-areas: 'mainContent mainContent';\r\n}\r\n\r\n.magic:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.project-hidden div {\r\n    padding: var(--padding-y) var(--padding-x);\r\n    border-radius: 0.2rem;\r\n    background-color: var(--bg-color);\r\n}\r\n\r\n.project-hidden:hover {\r\n    cursor: pointer;\r\n}\r\n/* .project-hidden div:active{\r\n    scale: 1.1;\r\n} */\r\n.project-main{\r\n    border: 1px solid gray;\r\n    border-radius: 0.2rem;\r\n    border-left:5px solid var(--bg-color);\r\n}\r\n.project-title-first{\r\n    display: flex;\r\n    align-items: center;\r\n    padding: 0.5rem;\r\n}\r\n.project-title-first p{\r\n    margin-left: auto;\r\n}\r\n.project-title-second{\r\n    display: flex;\r\n    align-items: center;\r\n    padding: 0.5rem;\r\n}\r\n.project-priority{\r\n    margin-left: auto;\r\n}\r\n.project-title-content{\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 0.5rem;\r\n}\r\n.addNewTask{\r\n    position: fixed;\r\n    right: 1rem;\r\n    bottom: 2rem;\r\n    background-color:rgb(6, 78, 6);\r\n    color:white;\r\n    border-radius: 50%;\r\n    padding: 1rem;\r\n    opacity: 0.8;\r\n    cursor: pointer;\r\n}\r\n.addNewTask:active{\r\n    scale: 1.1;\r\n}\r\n.btn-value{\r\n  background-color: rgb(32, 77, 145);\r\n  color: white;\r\n  padding: 0.2rem;\r\n    border: 2px solid rgb(45, 128, 175);\r\n    outline: none;\r\n    cursor: pointer;\r\n}\r\n.btn-value:active{\r\n    scale: 1.1;\r\n}\r\n.project-section{\r\n    display: flex;\r\n    gap: 0.5rem;\r\n\r\n}\r\n.project-btn{\r\n    background-color: greenyellow;\r\n    padding-left: 0.5rem;\r\n    padding-right: 0.5rem;\r\n    border: 1px solid red;\r\n    cursor: pointer;\r\n}\r\n.high{\r\n    color: red;\r\n    font: bold;\r\n}\r\n.medium{\r\n    color: rgb(221, 164, 100);\r\n     font: bold;\r\n}\r\n.low{\r\n    color: green;\r\n     font: bold;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -619,6 +654,77 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
+/***/ "./src/class/project.js":
+/*!******************************!*\
+  !*** ./src/class/project.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ProjectList: () => (/* binding */ ProjectList),
+/* harmony export */   Projects: () => (/* binding */ Projects),
+/* harmony export */   TodoList: () => (/* binding */ TodoList),
+/* harmony export */   Todos: () => (/* binding */ Todos)
+/* harmony export */ });
+
+
+class Projects{
+    constructor(title){
+        this.id=crypto.randomUUID();
+        this.title=title; 
+        this.todos=[];
+    }
+}
+
+class ProjectList{
+    constructor(){
+        this._projects=[];
+    }
+    addProject(name){
+        const newProject=new Projects(name);
+        this._projects.push(newProject);
+        return newProject;
+    }
+    showProject(id){
+        const result=this._projects.find((project)=>project.id==id);
+        return result;
+    }
+    clearProject(id){
+          this._projects=this._projects.filter((project)=>project.id!==id);
+    }
+}
+
+class Todos{
+    constructor(title,description,dueDate,priority){
+        this.id=crypto.randomUUID();
+        this.title=title;
+        this.description=description;
+        this.dueDate=dueDate;
+        this.priority=priority;
+    }
+}
+
+class TodoList{
+    constructor(projectList){
+        this.projectList=projectList;
+    }
+    addTodo(projectId,title,description,dueDate,priority){
+        const newTodo=new Todos(title,description,dueDate,priority);
+        const project=this.projectList.showProject(projectId);
+        project.todos.push(newTodo);
+
+    }
+}
+
+
+
+
+
+
+
+/***/ }),
+
 /***/ "./src/styles.css":
 /*!************************!*\
   !*** ./src/styles.css ***!
@@ -752,96 +858,283 @@ var __webpack_exports__ = {};
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.css */ "./src/styles.css");
+/* harmony import */ var _class_project__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./class/project */ "./src/class/project.js");
+
 
 
 // import dropDown from './assets/dropdown.svg';
 
 
-const addTask=document.querySelector('.newTask');
-const showProject=document.querySelector('.optionToShow');
-const projectHidden=document.querySelector('.project-hidden');
-const dialog=document.querySelector('#dialogBox');
-const dialogClose=document.querySelector('.dialogClose');
-const sideBar=document.querySelector('.sidebar-content');
-const slide=document.querySelector('.magic');
-const container=document.querySelector('.container');
-const projectAdd=document.querySelector('.projectAdd');
-const projectClose=document.querySelector('.projectClose');
-const projectDialog=document.querySelector('#projectDialog');
-const projectInput=document.querySelector('.projectInput');
-const title=document.querySelector('.dynamic-tittle');
-const firstContent=document.querySelector('.first-content');
-const addTodoTask=document.querySelector('.addNewTask');
+const addTask = document.querySelector('.newTask');
+const showProject = document.querySelector('.optionToShow');
+const projectHidden = document.querySelector('.project-hidden');
+const dialog = document.querySelector('#dialogBox');
+const dialogClose = document.querySelector('.dialogClose');
+const sideBar = document.querySelector('.sidebar-content');
+const slide = document.querySelector('.magic');
+const container = document.querySelector('.container');
+const projectAdd = document.querySelector('.projectAdd');
+const projectClose = document.querySelector('.projectClose');
+const projectDialog = document.querySelector('#projectDialog');
+const projectInput = document.querySelector('.projectInput');
+const title = document.querySelector('.dynamic-tittle');
+const firstContent = document.querySelector('.first-content');
+const addTodoTask = document.querySelector('.addNewTask');
+const todoContent=document.querySelector('.project-title-content');
+
+//for add todo list variable
+const todoTitle=document.querySelector('#title');
+const todoDesc=document.querySelector('#description');
+const todoDate=document.querySelector('#date');
+const todoPriority=document.querySelector('#priority');
+const addTodoBtn=document.querySelector('.btn-value');
+
 // const secondContent=document.querySelector('.second-content');
 
-addTodoTask.addEventListener('click',()=>{
+let projectArray =[];
+let currentId=null;
+let projectList = new _class_project__WEBPACK_IMPORTED_MODULE_1__.ProjectList();
+let todoList = new _class_project__WEBPACK_IMPORTED_MODULE_1__.TodoList(projectList);
+
+addTodoTask.addEventListener('click', () => {
     dialog.showModal();
 })
 
+const today = new Date().toISOString().split('T')[0];
+todoDate.min=today;
+
 // use of event delegant 
-firstContent.addEventListener('click',(event)=>{
-    if(event.target.tagName==='P'){
-        title.textContent="";
-        const newH2=document.createElement('H2');
-        newH2.textContent=event.target.textContent;
+//this section is used for today and upcoming section only...
+firstContent.addEventListener('click', (event) => {
+    if (event.target.tagName === 'P') {
+        title.textContent = "";
+        const newH2 = document.createElement('H2');
+        newH2.textContent = event.target.textContent;
         title.appendChild(newH2);
         // console.log(event.target.textContent);
     }
 })
 
-projectHidden.addEventListener('click',(event)=>{
-      if(event.target && event.target.tagName === 'H4'){
-         title.textContent="";
-        const newH2=document.createElement('H2');
-        newH2.textContent=event.target.textContent;
-        title.appendChild(newH2);
-        console.log(newH2);
+projectHidden.addEventListener('click', (event) => {
+if(event.target.closest('.project-section' )){
+    const projectSection=event.target.closest('.project-section');
+    const h4=projectSection.querySelector('h4');
+    const heading=document.createElement('h3');
+    title.textContent="";
+    heading.textContent=h4.textContent;
+    title.appendChild(heading);
+ 
+    // console.log(event.target.dataset.id);
+    currentId=event.target.dataset.id;
+
+    renderContain();
+}
+
+
+
+    if (event.target && event.target.classList.contains('project-btn')) {
+        const del = confirm("Are you sure you want to delete ?");
+        if (del) {
+            projectArray = projectArray.filter((p) => p.id !== event.target.dataset.id);
+            event.target.closest('.project-section').remove();
+        }
+
+
     }
 })
 
-slide.addEventListener('click',()=>{
-    sideBar.classList.toggle('sidebar-content-active');
-   container.classList.toggle('sidebar-hidden');
+
+
+function createNewProject() {
+    if (projectInput.value == '') {
+        alert("Enter some project");
+    } else {
+        const newDiv = document.createElement('div');
+        newDiv.classList.add('project-section');
+        const title = document.createElement("H4");
+        title.textContent = projectInput.value;
+        const btn = document.createElement('Button');
+        btn.classList.add('project-btn');
+        btn.textContent = "Delete";
+
+
+
+        const project = projectList.addProject(projectInput.value);
+
+        btn.dataset.id = project.id;
+        newDiv.dataset.id=project.id;
+        title.dataset.id=project.id;
+
+        newDiv.appendChild(title);
+        newDiv.appendChild(btn);
+        projectHidden.appendChild(newDiv);
+
+
+
+        projectArray.push(project);
+
+        projectDialog.close();
+        projectInput.value = "";
+    }
+}
+
+projectInput.addEventListener('keydown', (e) => {
+    if (e.key === "Enter") {
+        createNewProject();
+    }
 })
 
-dialogClose.addEventListener('click',()=>{
+//section for todoAdd button
+addTodoBtn.addEventListener('click',()=>{
+   
+    let todoTitleValue=todoTitle.value.trim();
+    let todoDescValue=todoDesc.value.trim();
+    let todoDatevalue=todoDate.value;
+    let todoPriorityValue=todoPriority.value;
+
+     if (currentId == null) {
+  dialog.close();
+  todoTitle.value = "";
+  todoDesc.value = "";
+  todoDate.value = "";
+  todoPriority.value = "";
+  return;
+}
+
+
+    if(!todoTitleValue || !todoDescValue || !todoDatevalue || !todoPriorityValue){
+        alert("Enter all the field");
+        return;
+    }
+    todoList.addTodo(currentId,todoTitleValue,todoDescValue,todoDatevalue,todoPriorityValue);
+ 
+    renderContain();
+    console.log(projectArray);
     dialog.close();
 })
 
-projectClose.addEventListener('click',()=>{
+
+slide.addEventListener('click', () => {
+    sideBar.classList.toggle('sidebar-content-active');
+    container.classList.toggle('sidebar-hidden');
+})
+
+dialogClose.addEventListener('click', () => {
+    dialog.close();
+})
+
+projectClose.addEventListener('click', () => {
     projectDialog.close();
 })
-projectAdd.addEventListener('click',()=>{
-    if(projectInput.value==''){
-        alert("Enter some project");
-    }else{
-       const newDiv=document.createElement('div');
-       const title=document.createElement("H4");
-       title.textContent=projectInput.value;
-       newDiv.appendChild(title);
-       projectHidden.appendChild(newDiv);
-       projectDialog.close();
-       projectInput.value="";
-    }
+
+projectAdd.addEventListener('click', (e) => {
+
+    createNewProject();
 
 })
 
-addTask.addEventListener('click',()=>{
-   projectDialog.showModal();
+addTask.addEventListener('click', () => {
+    projectDialog.showModal();
 })
 
-function magic(){
+function magic() {
     projectHidden.classList.toggle("active");
 }
 
-showProject.addEventListener('click',magic);
+showProject.addEventListener('click', magic);
+
+
+function renderContain(){
+const project=projectList.showProject(currentId);
+
+todoContent.innerHTML="";
+project.todos.forEach((todo)=>{
+    const newDiv=document.createElement('div');
+    newDiv.classList.add('project-main');
+    const divFirst=document.createElement('div');
+    divFirst.classList.add('project-title-first');
+    const divSecond=document.createElement('div');
+    divSecond.classList.add('project-title-second');
+
+    const h3=document.createElement('H3');
+    h3.textContent=todo.title;
+    const p=document.createElement('P');
+    p.textContent=todo.dueDate;
+
+    divFirst.append(h3,p);
+
+    const p2=document.createElement('p');
+    p2.textContent=todo.description;
+    const p3=document.createElement('p');
+    p3.textContent=todo.priority;
+    if(todo.priority=="High"){
+        p3.classList.add('high');
+    }
+    else if(todo.priority=="Medium"){
+        p3.classList.add('medium');
+    }
+    else if(todo.priority=="Low"){
+        p3.classList.add('low');
+    }
+    p3.classList.add('project-priority');
+    const btn=document.createElement('button');
+    btn.dataset.id=todo.id;
+    btn.textContent="Delete";
+    btn.classList.add('todoBtn-delete');
+
+
+    divSecond.append(p2,p3,btn);
+
+    newDiv.append(divFirst,divSecond);
+    todoContent.appendChild(newDiv);
+
+})
+
+      todoTitle.value = "";
+  todoDesc.value = "";
+  todoDate.value = "";
+  todoPriority.value = "";
+
+
+}
+
+todoContent.addEventListener('click',(e)=>{
+    if(e.target.closest('.todoBtn-delete')){
+        const id=e.target.dataset.id;
+        const project=projectList.showProject(currentId);
+        const ask=confirm("Are you sure you want to delete this?");
+
+        if(ask){
+    project.todos=project.todos.filter((todo)=>todo.id!==id);
+        renderContain();
+        }
+
+    }
+})
 
 
 
 
+// let projectList=new ProjectList();
+// const p1=projectList.addProject("sunday");
+// const p2=projectList.addProject("monday");
 
+// let todoList=new TodoList(projectList);
+// todoList.addTodo(p1.id,"sunday task","wake up and do exercise","monday","high");
+// todoList.addTodo(p2.id,"monday task","do exercise","sunday","high");
 
+// console.log(projectList);
 
+//   <div class="project-main">
+//   <div class="project-title-first">
+//  <h3>tittle of project</h3>
+//     <p>Due date</p>
+//     </div>
+//    <div class="project-title-second">
+//     <p>Content</p>
+//     <p class="project-priority">Priority</p>
+//    </div>
+//     </div>
 })();
 
 /******/ })()
