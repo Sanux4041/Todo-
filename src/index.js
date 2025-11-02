@@ -41,138 +41,155 @@ let todoList = new TodoList(projectList);
 let todayTask = [];
 let upcomingTask = [];
 
+
+
+
 todayTasks.addEventListener('click', () => {
     title.innerHTML = "";
-     todoContent.textContent="";
+    todoContent.textContent = "";
     const h3 = document.createElement('h3');
     h3.textContent = "Today Tasks";
     title.appendChild(h3);
     currentId = 11;
-  if(todayTask.length==0){
-    return;
-  }
-  else{
-    defaultTask(currentId);
-  }
+    if (todayTask.length == 0) {
+        return;
+    }
+    else {
+        defaultTask(currentId);
+    }
 }
 );
 
 
 upcomingTasks.addEventListener('click', () => {
     title.innerHTML = "";
-        todoContent.textContent="";
+    todoContent.textContent = "";
     const h3 = document.createElement('h3');
     h3.textContent = "Upcoming Tasks";
     title.appendChild(h3);
     currentId = 22;
-    if(upcomingTask.length==0){
+    if (upcomingTask.length == 0) {
         return;
     }
-    else{
+    else {
         defaultTask(currentId);
     }
 }
-); 
+);
 function defaultTask(id) {
-  currentId = id;
-  todoContent.innerHTML = "";
-
-  
-  const task = {
-    id:crypto.randomUUID(),
-    title: todoTitle.value,
-    dueDate: todoDate.value,
-    description: todoDesc.value,
-    priority: todoPriority.value
-  };
-
-  
-  if (id === 11 ) {
-    if(!task.title==""){
- 
-        todayTask.push(task);
-  }
+    currentId = id;
+    todoContent.innerHTML = "";
 
 
-   
-    todayTask.forEach((todo) => {
-      const newDiv = document.createElement('div');
-      newDiv.classList.add('project-main');
-
-      const divFirst = document.createElement('div');
-      divFirst.classList.add('project-title-first');
-      const divSecond = document.createElement('div');
-      divSecond.classList.add('project-title-second');
-
-      const h3 = document.createElement('h3');
-      h3.textContent = todo.title;
-      const p = document.createElement('p');
-      p.textContent = todo.dueDate;
-      divFirst.append(h3, p);
-
-      const p2 = document.createElement('p');
-      p2.textContent = todo.description;
-      const p3 = document.createElement('p');
-      p3.textContent = todo.priority;
-
-      if (todo.priority === "High") p3.classList.add('high');
-      else if (todo.priority === "Medium") p3.classList.add('medium');
-      else if (todo.priority === "Low") p3.classList.add('low');
-
-      p3.classList.add('project-priority');
+    const task = {
+        id: crypto.randomUUID(),
+        title: todoTitle.value,
+        dueDate: todoDate.value,
+        description: todoDesc.value,
+        priority: todoPriority.value
+    };
 
 
+    if (id === 11) {
+        if (!task.title == "") {
 
-      divSecond.append(p2, p3);
-      newDiv.append(divFirst, divSecond);
-      todoContent.appendChild(newDiv);
-    });
-  } else if (id === 22) {
-    if(!task.title==""){
+            todayTask.push(task);
+            localStorage.setItem('ajaKoTask', JSON.stringify(todayTask));
+        }
 
-        upcomingTask.push(task);
+
+ todayTask=JSON.parse(localStorage.getItem('ajaKoTask'));
+        todayTask.forEach((todo) => {
+            const newDiv = document.createElement('div');
+            newDiv.classList.add('project-main');
+
+            const divFirst = document.createElement('div');
+            divFirst.classList.add('project-title-first');
+            const divSecond = document.createElement('div');
+            divSecond.classList.add('project-title-second');
+
+            const h3 = document.createElement('h3');
+            h3.textContent = todo.title;
+            const p = document.createElement('p');
+            p.textContent = todo.dueDate;
+            divFirst.append(h3, p);
+
+            const p2 = document.createElement('p');
+            p2.textContent = todo.description;
+            const p3 = document.createElement('p');
+            p3.textContent = todo.priority;
+            const btn = document.createElement('button');
+            btn.textContent = "Delete";
+            btn.classList.add("defaultBtn");
+            btn.dataset.id = todo.id;
+
+            if (todo.priority === "High") p3.classList.add('high');
+            else if (todo.priority === "Medium") p3.classList.add('medium');
+            else if (todo.priority === "Low") p3.classList.add('low');
+
+            p3.classList.add('project-priority');
+
+
+
+            divSecond.append(p2, p3, btn);
+            newDiv.append(divFirst, divSecond);
+            todoContent.appendChild(newDiv);
+        });
+    } else if (id === 22) {
+        if (!task.title == "") {
+
+            upcomingTask.push(task);
+
+            localStorage.setItem('futureKoTask', JSON.stringify(upcomingTask));
+        }
+let upcomingsTask=JSON.parse(localStorage.getItem('futureKoTask'));
+
+// console.log(upcomingsTask); have to work on this....
+
+        upcomingTask.forEach((todo) => {
+            const newDiv = document.createElement('div');
+            newDiv.classList.add('project-main');
+
+            const divFirst = document.createElement('div');
+            divFirst.classList.add('project-title-first');
+            const divSecond = document.createElement('div');
+            divSecond.classList.add('project-title-second');
+
+            const h3 = document.createElement('h3');
+            h3.textContent = todo.title;
+            const p = document.createElement('p');
+            p.textContent = todo.dueDate;
+            divFirst.append(h3, p);
+
+            const p2 = document.createElement('p');
+            p2.textContent = todo.description;
+            const p3 = document.createElement('p');
+            p3.textContent = todo.priority;
+            const btn = document.createElement('button');
+            btn.textContent = "Delete";
+            btn.classList.add("defaultBtn");
+            btn.dataset.id = todo.id;
+
+            if (todo.priority === "High") p3.classList.add('high');
+            else if (todo.priority === "Medium") p3.classList.add('medium');
+            else if (todo.priority === "Low") p3.classList.add('low');
+
+            p3.classList.add('project-priority');
+
+
+
+            divSecond.append(p2, p3, btn);
+            newDiv.append(divFirst, divSecond);
+            todoContent.appendChild(newDiv);
+        });
     }
+    dialog.close();
 
-    upcomingTask.forEach((todo) => {
-      const newDiv = document.createElement('div');
-      newDiv.classList.add('project-main');
-
-      const divFirst = document.createElement('div');
-      divFirst.classList.add('project-title-first');
-      const divSecond = document.createElement('div');
-      divSecond.classList.add('project-title-second');
-
-      const h3 = document.createElement('h3');
-      h3.textContent = todo.title;
-      const p = document.createElement('p');
-      p.textContent = todo.dueDate;
-      divFirst.append(h3, p);
-
-      const p2 = document.createElement('p');
-      p2.textContent = todo.description;
-      const p3 = document.createElement('p');
-      p3.textContent = todo.priority;
-
-      if (todo.priority === "High") p3.classList.add('high');
-      else if (todo.priority === "Medium") p3.classList.add('medium');
-      else if (todo.priority === "Low") p3.classList.add('low');
-
-      p3.classList.add('project-priority');
-
- 
-
-      divSecond.append(p2, p3);
-      newDiv.append(divFirst, divSecond);
-      todoContent.appendChild(newDiv);
-    });
-}
-dialog.close();
-
-  // Clear inputs after adding
-  todoTitle.value = "";
-  todoDesc.value = "";
-  todoDate.value = "";
-  todoPriority.value = "";
+    // Clear inputs after adding
+    todoTitle.value = "";
+    todoDesc.value = "";
+    todoDate.value = "";
+    todoPriority.value = "";
 }
 
 
@@ -217,9 +234,9 @@ projectHidden.addEventListener('click', (event) => {
         if (del) {
             projectArray = projectArray.filter((p) => p.id !== event.target.dataset.id);
             event.target.closest('.project-section').remove();
-            currentId=null;
-            title.textContent="";
-            todoContent.innerHTML="";
+            currentId = null;
+            title.textContent = "";
+            todoContent.innerHTML = "";
         }
 
 
@@ -255,6 +272,7 @@ function createNewProject() {
 
 
         projectArray.push(project);
+        localStorage.setItem('projectKoArray', JSON.stringify(projectArray));
 
         projectDialog.close();
         projectInput.value = "";
@@ -302,6 +320,8 @@ addTodoBtn.addEventListener('click', () => {
     todoList.addTodo(currentId, todoTitleValue, todoDescValue, todoDatevalue, todoPriorityValue);
 
     renderContain();
+    let testing=JSON.parse(localStorage.getItem('projectKoArray'));
+    console.log(testing);
     console.log(projectArray);
     dialog.close();
 })
@@ -400,6 +420,21 @@ todoContent.addEventListener('click', (e) => {
         if (ask) {
             project.todos = project.todos.filter((todo) => todo.id !== id);
             renderContain();
+        }
+    }
+    else if (e.target.closest('.defaultBtn')) {
+        const id = e.target.dataset.id;
+        const ask = confirm("Are you sure you want to delete this?");
+
+        if (ask) {
+            if (currentId == 11) {
+                todayTask = todayTask.filter((todo) => todo.id !== id);
+                defaultTask(currentId);
+            }
+            else {
+                upcomingTask = upcomingTask.filter((todo) => todo.id !== id);
+                defaultTask(currentId);
+            }
         }
 
     }
