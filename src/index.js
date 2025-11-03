@@ -51,12 +51,15 @@ todayTasks.addEventListener('click', () => {
     h3.textContent = "Today Tasks";
     title.appendChild(h3);
     currentId = 11;
+  
     if (todayTask.length == 0) {
         return;
     }
     else {
         defaultTask(currentId);
+       
     }
+    // defaultTask(currentId);
 }
 );
 
@@ -76,10 +79,14 @@ upcomingTasks.addEventListener('click', () => {
     }
 }
 );
+todayTask=JSON.parse(localStorage.getItem('ajaKoTask'))||[];
+upcomingTask=JSON.parse(localStorage.getItem('futureKoTask'))||[];
+projectArray=JSON.parse(localStorage.getItem('projectKoArray'))||[];
+
 function defaultTask(id) {
     currentId = id;
+    let todayTaskss;
     todoContent.innerHTML = "";
-
 
     const task = {
         id: crypto.randomUUID(),
@@ -93,13 +100,14 @@ function defaultTask(id) {
     if (id === 11) {
         if (!task.title == "") {
 
+
             todayTask.push(task);
             localStorage.setItem('ajaKoTask', JSON.stringify(todayTask));
         }
 
-
- todayTask=JSON.parse(localStorage.getItem('ajaKoTask'));
-        todayTask.forEach((todo) => {
+ todayTaskss=JSON.parse(localStorage.getItem('ajaKoTask'));
+//  console.log(todayTasks);
+        todayTaskss.forEach((todo) => {
             const newDiv = document.createElement('div');
             newDiv.classList.add('project-main');
 
@@ -142,11 +150,11 @@ function defaultTask(id) {
 
             localStorage.setItem('futureKoTask', JSON.stringify(upcomingTask));
         }
-let upcomingsTask=JSON.parse(localStorage.getItem('futureKoTask'));
+let upcomingsTasks=JSON.parse(localStorage.getItem('futureKoTask'));
 
 // console.log(upcomingsTask); have to work on this....
 
-        upcomingTask.forEach((todo) => {
+        upcomingsTasks.forEach((todo) => {
             const newDiv = document.createElement('div');
             newDiv.classList.add('project-main');
 
@@ -233,6 +241,7 @@ projectHidden.addEventListener('click', (event) => {
         const del = confirm("Are you sure you want to delete ?");
         if (del) {
             projectArray = projectArray.filter((p) => p.id !== event.target.dataset.id);
+            localStorage.setItem('projectKoArray',JSON.stringify(projectArray));
             event.target.closest('.project-section').remove();
             currentId = null;
             title.textContent = "";
@@ -242,6 +251,36 @@ projectHidden.addEventListener('click', (event) => {
 
     }
 })
+
+
+console.log(projectArray);
+
+(function showLocalStorageProject() {
+    // Load projects from localStorage first
+    projectArray = JSON.parse(localStorage.getItem('projectKoArray')) || [];
+    projectList._projects = projectArray.map(p => Object.assign(new Projects(p.title), p));
+
+    projectArray.forEach((projects) => {
+        const newDiv = document.createElement('div');
+        newDiv.classList.add('project-section');
+
+        const title = document.createElement("H4");
+        title.textContent = projects.title;
+
+        const btn = document.createElement('Button');
+        btn.classList.add('project-btn');
+        btn.textContent = "Delete";
+
+  
+        btn.dataset.id = projects.id;
+        newDiv.dataset.id = projects.id;
+        title.dataset.id = projects.id;
+
+        newDiv.appendChild(title);
+        newDiv.appendChild(btn);
+        projectHidden.appendChild(newDiv);
+    });
+})();
 
 
 
@@ -270,9 +309,9 @@ function createNewProject() {
         projectHidden.appendChild(newDiv);
 
 
-
+projectArray=JSON.parse(localStorage.getItem('projectKoArray'))||[];
         projectArray.push(project);
-        localStorage.setItem('projectKoArray', JSON.stringify(projectArray));
+    localStorage.setItem('projectKoArray', JSON.stringify(projectArray));
 
         projectDialog.close();
         projectInput.value = "";
@@ -318,11 +357,12 @@ addTodoBtn.addEventListener('click', () => {
         return;
     }
     todoList.addTodo(currentId, todoTitleValue, todoDescValue, todoDatevalue, todoPriorityValue);
+    localStorage.setItem('projectKoArray', JSON.stringify(projectArray));
+
 
     renderContain();
-    let testing=JSON.parse(localStorage.getItem('projectKoArray'));
-    console.log(testing);
-    console.log(projectArray);
+    
+   
     dialog.close();
 })
 
@@ -358,7 +398,8 @@ showProject.addEventListener('click', magic);
 
 
 function renderContain() {
-    const project = projectList.showProject(currentId);
+    // const project = projectList.showProject(currentId);
+    const project=projectArray.find((proj)=>proj.id==currentId);
 
     todoContent.innerHTML = "";
     project.todos.forEach((todo) => {
@@ -418,8 +459,14 @@ todoContent.addEventListener('click', (e) => {
         const ask = confirm("Are you sure you want to delete this?");
 
         if (ask) {
-            project.todos = project.todos.filter((todo) => todo.id !== id);
-            renderContain();
+            const projectIndex=projectArray.findIndex((p)=>p.id==currentId);
+            if(projectIndex!==-1){
+                projectArray[projectIndex].todos=projectArray[projectIndex].todos.filter((todo)=>todo.id!==id);
+                localStorage.setItem('projectKoArray',JSON.stringify(projectArray));
+                renderContain();
+            }
+            // project.todos = project.todos.filter((todo) => todo.id !== id);
+            
         }
     }
     else if (e.target.closest('.defaultBtn')) {
@@ -428,11 +475,15 @@ todoContent.addEventListener('click', (e) => {
 
         if (ask) {
             if (currentId == 11) {
+                let index=todayTask.findIndex(indexs=>indexs.id==id);
+                console.log(index);
                 todayTask = todayTask.filter((todo) => todo.id !== id);
+                localStorage.setItem('ajaKoTask',JSON.stringify(todayTask));
                 defaultTask(currentId);
             }
             else {
                 upcomingTask = upcomingTask.filter((todo) => todo.id !== id);
+                localStorage.setItem('futureKoTask',JSON.stringify(upcomingTask));
                 defaultTask(currentId);
             }
         }
