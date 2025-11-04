@@ -161,9 +161,9 @@
 .project-hidden:hover {
     cursor: pointer;
 }
-.project-hidden div:active{
+/* .project-hidden div:active{
     scale: 1.1;
-}
+} */
 .project-main{
     border: 1px solid gray;
     border-radius: 0.2rem;
@@ -214,4 +214,28 @@
 }
 .btn-value:active{
     scale: 1.1;
+}
+.project-section{
+    display: flex;
+    gap: 0.5rem;
+
+}
+.project-btn{
+    background-color: greenyellow;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border: 1px solid red;
+    cursor: pointer;
+}
+.high{
+    color: red;
+    font: bold;
+}
+.medium{
+    color: rgb(221, 164, 100);
+     font: bold;
+}
+.low{
+    color: green;
+     font: bold;
 }
